@@ -64,15 +64,7 @@ namespace ecs
 	protected:
 
 		SystemUpdateType updateType = Undefined;
-		//TypeFilter componentFilter;
-		//TypeFilter eventFilter;
 		TypeFilter typeFilter;
-
-		//static std::unordered_map<TypeID, SystemCreateFunction>* typeIDToCreateFunctionMap;
-
-		//static SystemCreateFunction RegisterCreateFunction(TypeID _typeID, SystemCreateFunction cf);
-
-		//static IDGenerator<TypeID> typeIDGenerator;
 		static TypeID typeIDCounter;
 		friend class EntityComponentSystem;
 	};
@@ -131,7 +123,6 @@ namespace ecs
 
 	template <typename T>
 	const SystemCreateFunction ECSSystem<T>::createFunction(systemCreate<T>);
-	//const SystemCreateFunction ECSSystem<T>::createFunction(systemCreate<T>);
 
 	template <typename T>
 	const SystemFreeFunction ECSSystem<T>::freeFunction(systemFree<T>);

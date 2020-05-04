@@ -75,10 +75,4 @@ Entity* ECSEntityManager::createEntityInternal()
 		std::cout << "Failed to initialize entity in ECSEntityManager::createEntityInternal(). Should have ID = " << idCounter - 1 << "\n";
 	}
 	return entity;
-
-
-	/*ID newID = idCounter++;
-	Entity* entity = new Entity;
-	entity->id = newID;
-	return entities[newID] = entity;*/
 }

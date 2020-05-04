@@ -63,7 +63,7 @@ namespace ecs
 		std::map<ID, BaseComponent*> lookUpList;
 		bool initialized = false;
 
-		std::string componentName; // TODO: remove this
+		std::string componentName;
 		void* memory;
 		size_t memorySize;
 		size_t componentCap;

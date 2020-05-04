@@ -191,21 +191,8 @@ void EntityComponentSystem::update(float _delta)
 
 		SystemList& layer = systemLayers[i];
 
-		//#ifdef _DEBUG
-		//	// Add layer print
-		//	if ((unsigned int)layer.size())
-		//	{
-		//		debugPrint += "\t[layer " + to_string(i) + "] ";
-		//	}
-		//#endif
-
 		for (BaseSystem* s : layer)
 		{
-			//#ifdef _DEBUG
-			//	// Print system
-			//	debugPrint += s->getName();
-			//#endif
-
 			/*
 			*	Fetch the system's update behaviour and act accordingly.
 			*/
@@ -250,26 +237,9 @@ void EntityComponentSystem::update(float _delta)
 			case Actor:
 				s->act(_delta);
 				break;
-
-		//#ifdef _DEBUG
-		//	case Undefined:
-		//		debugPrint += "(Undefined update type)";
-		//		break;
-		//#endif
-
 			}
 
-			//#ifdef _DEBUG
-			//	debugPrint += ", ";
-			//#endif
 		}
-
-		//#ifdef _DEBUG
-		//	if ((unsigned int)layer.size())
-		//	{
-		//		debugPrint += "\n";
-		//	}
-		//#endif
 	}
 
 	/*
@@ -284,38 +254,6 @@ void EntityComponentSystem::update(float _delta)
 	componentMgr.removeAllFlagged();
 	entityMgr.removeAllFlagged();
 	eventMgr.clearAllEvents();
-
-//#ifdef _DEBUG
-//	debugPrint += "\tComp. count:\t" + to_string(componentMgr.getTotalComponentCount()) + "\n";
-//	debugPrint += "\tEntity count:\t" + to_string(entityMgr.getEntityCount()) + "\n";
-//
-//	if (entityMgr.getEntityCount() <= DEBUG_ENTITY_PRINT_MAX_COUNT)
-//	{
-//		unsigned int counter = 1;
-//		using IDPair = std::pair<TypeID, ID>;
-//		for (ECSEntityManager::EntityPair e : entityMgr.entities)
-//		{
-//			debugPrint += "\t  ";
-//
-//			debugPrint += (counter != entityMgr.getEntityCount()) ? "|" : " ";
-//
-//			debugPrint += "`-[ID=" + to_string(e.second->getID()) + "] ";
-//
-//			
-//			for (IDPair idPair : e.second->componentIDs)
-//			{
-//				BaseComponent* pComp = getComponent(idPair.first, idPair.second);
-//				debugPrint += pComp->getName() + " ";
-//			}
-//			debugPrint += "\n";
-//			counter++;
-//		}
-//	}
-//#endif
-
-//#ifdef _DEBUG
-//	cout << debugPrint << endl;
-//#endif
 }
 
 /*

@@ -70,7 +70,6 @@ namespace ecs
 	template <typename T>
 	ID componentCreate(void* _memoryPtr, BaseComponent* _initialData)
 	{
-		//_initialData->id = BaseComponent::uniqueIDGenerator.generateID();
 		_initialData->id = BaseComponent::uniqueIDCounter++;
 		new(_memoryPtr) T(*(T*)_initialData);
 		return _initialData->id;

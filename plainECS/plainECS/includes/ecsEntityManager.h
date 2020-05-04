@@ -35,7 +35,6 @@ namespace ecs
 	private:
 
 		// Generates a unique ID for each entity
-		//IDGenerator<ID> idGenerator;
 		unsigned int idCounter = 1;
 
 		// List of all existing entitites

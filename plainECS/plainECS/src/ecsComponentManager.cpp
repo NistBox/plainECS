@@ -24,7 +24,6 @@ void ECSComponentManager::initPoolType(TypeID _typeID, size_t _componentSize, si
 	}
 
 	componentPools[_typeID] = new ECSComponentPool(_count, _componentSize);
-	//componentPools[_typeID]->initialize(_count, _componentSize);
 }
 
 BaseComponent* ECSComponentManager::createComponent(BaseComponent& _initInfo)
@@ -36,7 +35,6 @@ BaseComponent* ECSComponentManager::createComponent(BaseComponent& _initInfo)
 	if (componentPools.count(typeID) == 0 || !componentPools[typeID]->isInitialized())
 	{
 		componentPools[typeID] = new ECSComponentPool(DEFAULT_COMPONENT_POOL_SIZE_COUNT, _initInfo.getSize());
-		//componentPools[typeID]->initialize(DEFAULT_COMPONENT_POOL_SIZE_COUNT, _initInfo.getSize());
 	}
 	
 	return componentPools[typeID]->create(_initInfo);
